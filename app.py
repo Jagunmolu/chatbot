@@ -1,15 +1,13 @@
 from dotenv import load_dotenv
 load_dotenv()  # load all the environment variables from .env
 
-
 import google.generativeai as genai
-import os
 import streamlit as st
 
 # Configure Streamlit App Title
 st.title("Jagunmólú Chat Bot")
 
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 
 # Initialize Gemini Model
 model = genai.GenerativeModel("gemini-1.5-flash")
